@@ -28,7 +28,21 @@ do
 done
 
 
-# using read -p
+# using read -p: automatically assigns the input to the variable without using echo
+# kinda like " variable = input("Enter info: ") " in python
 echo
 read -p "Enter username: " username
 printf "Welcome $username!\n"
+
+# using read -s: makes the input invisible
+echo
+read -sp "Enter hidden message: " hidden
+echo
+printf "\nI KNOW YOUR SECRET! IT IS: \n"
+echo
+for ((i=3; i>0; i--))
+do
+    sleep 1 && echo $i
+done
+sleep 1 && echo
+echo "$hidden"

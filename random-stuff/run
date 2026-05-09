@@ -1,0 +1,17 @@
+#!/bin/bash
+# to run C and C++ programs 
+
+# this removes the . and anything after it
+# essentially removing the extension of the file
+filename=${1%.*}
+
+# checking to see if it is a C or C++ file 
+# and using the appropriate compiler
+if [[ "$1" == *.c ]]; then
+    gcc -Wall -Wextra "$1" -o "$filename"
+elif [[ "$1" == *.cpp ]]; then
+    g++ -Wall -Wextra "$1" -o "$filename"
+fi && 
+
+# running the compiled file
+./"$filename"
